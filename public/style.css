@@ -49,9 +49,9 @@ textarea {
 }
 
 .message {
-    padding: 20px; 
-    border-radius: 4px; 
-    margin-bottom: 40px;
+    padding: 15px; 
+    border-radius: 10px; 
+    margin-bottom: 30px;
     max-width: 300px;
     position: relative;
 }
