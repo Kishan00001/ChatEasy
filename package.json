@@ -1,14 +1,14 @@
 {
-  "name": "wassup",
+  "name": "chateasy",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple Chateasy Application using Node.js and SocketIO",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon server",
     "serve": "node server"
   },
   "keywords": [],
-  "author": "",
+  "author": "Kishan Kumar",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",

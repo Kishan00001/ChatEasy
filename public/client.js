@@ -8,7 +8,7 @@ do {
 socket.emit('new-user-joined',name);
 textarea.addEventListener('keyup', (e) => {
     if(e.key === 'Enter') {
-        sendMessage(e.target.value)
+        sendMessage(e.target.value);
     }
 })
 
@@ -17,13 +17,11 @@ function sendMessage(message) {
         user: name,
         message: message.trim()
     }
-    // Append 
-    appendMessage(msg, 'outgoing')
-    textarea.value = ''
-    scrollToBottom()
+    appendMessage(msg, 'outgoing');// Append 
+    textarea.value = '';
+    scrollToBottom();
 
-    // Send to server 
-    socket.emit('message', msg)
+    socket.emit('message', msg)// Send to server 
 
 }
 
@@ -31,7 +29,6 @@ function appendMessage(msg, type) {
     let mainDiv = document.createElement('div')
     let className = type
     mainDiv.classList.add(className, 'message')
-
     let markup = `
         <h4>${msg.user}</h4>
         <p>${msg.message}</p>
@@ -57,6 +54,3 @@ socket.on('left',name=>{
 function scrollToBottom() {
     messageArea.scrollTop = messageArea.scrollHeight
 }
-
-
-
