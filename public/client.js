@@ -5,7 +5,7 @@ let messageArea = document.querySelector('.message__area')
 do {
     name = prompt('Please enter your name: ')
 } while(!name)
-
+socket.emit('new-user-joined',name);
 textarea.addEventListener('keyup', (e) => {
     if(e.key === 'Enter') {
         sendMessage(e.target.value)
@@ -44,6 +44,14 @@ function appendMessage(msg, type) {
 socket.on('message', (msg) => {
     appendMessage(msg, 'incoming')
     scrollToBottom()
+})
+//If a new user joins receive his/her name from the server
+socket.on('user-joined',name=>{
+    appendMessage(`${name} joined the chat ✅`,'incoming')
+});
+
+socket.on('left',name=>{
+    appendMessage(`${name} left the chat 👋`,'incoming')
 })
 
 function scrollToBottom() {
