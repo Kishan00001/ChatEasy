@@ -47,11 +47,11 @@ socket.on('message', (msg) => {
 })
 //If a new user joins receive his/her name from the server
 socket.on('user-joined',name=>{
-    appendMessage(`${name} joined the chat ✅`,'incoming')
+    sendMessage(`${name} joined the chat ✅`,'incoming')
 });
 
 socket.on('left',name=>{
-    appendMessage(`${name} left the chat 👋`,'incoming')
+    sendMessage(`${name} left the chat 👋`,'incoming')
 })
 
 function scrollToBottom() {
