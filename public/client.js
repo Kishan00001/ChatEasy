@@ -36,7 +36,14 @@ function appendMessage(msg, type) {
     mainDiv.innerHTML = markup
     messageArea.appendChild(mainDiv)
 }
-
+function notify(msg,type){
+    let mainDiv = document.createElement('div');
+    let className = type;
+    mainDiv.classList.add(className, 'message');
+    mainDiv.innerHTML = msg;
+    messageArea.appendChild(mainDiv);
+    socket.emit('message', msg);
+}
 // Recieve messages 
 socket.on('message', (msg) => {
     appendMessage(msg, 'incoming')
@@ -44,11 +51,11 @@ socket.on('message', (msg) => {
 })
 //If a new user joins receive his/her name from the server
 socket.on('user-joined',name=>{
-    sendMessage(`${name} joined the chat ✅`,'incoming')
+    notify(`${name} joined the chat ✅`,'incoming')
 });
 
 socket.on('left',name=>{
-    sendMessage(`${name} left the chat 👋`,'incoming')
+    notify(`${name} left the chat 👋`,'incoming')
 })
 
 function scrollToBottom() {
