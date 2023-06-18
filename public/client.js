@@ -42,8 +42,11 @@ function notify(msg,type){
     mainDiv.classList.add(className, 'message');
     mainDiv.innerHTML = msg;
     messageArea.appendChild(mainDiv);
-    socket.emit('message', msg);
+    // socket.emit('message', msg);
 }
+// socket.on('notification',(msg)=>{
+
+// })
 // Recieve messages 
 socket.on('message', (msg) => {
     appendMessage(msg, 'incoming')
